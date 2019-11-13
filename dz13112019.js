@@ -15,16 +15,28 @@ let appData ={
     savings:0,
 };
 
-question1 = prompt("Введите обязательную статью расходов в этом месяце");
-question2 = +prompt("Во сколько обойдется", 0);
-question1_2 = prompt("Введите обязательную статью расходов в этом месяце");
-question2_2 = +prompt("Во сколько обойдется", 0);
+for (let i=1; i<2;i++)
 
+{
+    let a = prompt("Введите обязательную статью расходов в этом месяце");
+    let  b = +prompt("Во сколько обойдется", 0);
 
-appData.expenses.question1=question1;
-appData.expenses.question2=question2;
-appData.expenses.question1_2=question1_2;
-appData.expenses.question2_2=question2_2;
-
-
-console.log(appData.moneyData/30);
+    if (
+    typeof(a) === 'string' 
+    && typeof(a) != null 
+    && typeof(b) != null
+    && a != ''
+    && b != ''
+    && a.length <50
+    )
+            {
+            console.log("ok");
+            appData.expenses[a] = b;
+            }
+   
+    else{
+        alert("статья расходов не может быть цифрой, повторите ввод");
+        i--;
+    }
+} 
+console.log(appData);
